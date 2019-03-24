@@ -166,25 +166,30 @@ version = "0.9.0"
 
 [[package]]
 category = "main"
-description = "Python dependency management and packaging made easy."
+description = ""
 name = "poetry"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = "~2.7 || ^3.4"
 version = "0.12.11"
 
 [package.dependencies]
-cachecontrol = ">=0.12.4,<0.13.0"
-cachy = ">=0.2,<0.3"
-cleo = ">=0.6.7,<0.7.0"
-html5lib = ">=1.0,<2.0"
-jsonschema = ">=3.0a3,<4.0"
-pkginfo = ">=1.4,<2.0"
-pyparsing = ">=2.2,<3.0"
-pyrsistent = ">=0.14.2,<0.15.0"
-requests = ">=2.18,<3.0"
-requests-toolbelt = ">=0.8.0,<0.9.0"
-shellingham = ">=1.1,<2.0"
-tomlkit = ">=0.5.1,<0.6.0"
+cachecontrol = "^0.12.4"
+cachy = "^0.2"
+cleo = "^0.6.7"
+html5lib = "^1.0"
+jsonschema = "^3.0a3"
+pkginfo = "^1.4"
+pyparsing = "^2.2"
+pyrsistent = "^0.14.2"
+requests = "^2.18"
+requests-toolbelt = "^0.8.0"
+shellingham = "^1.1"
+tomlkit = "^0.5.1"
+
+[package.source]
+reference = ""
+type = "directory"
+url = "vendor/poetry-0.12.11"
 
 [[package]]
 category = "dev"
@@ -316,7 +321,7 @@ python-versions = "*"
 version = "0.5.1"
 
 [metadata]
-content-hash = "6dd088f5205a7dc5da01cc647142121ab1ee26ad9df1c4c47d9418b966c54270"
+content-hash = "341c30a2be0f2b0c7739f0f0375fc0d7dccc9870bc5d04b10baed52703de9c0a"
 python-versions = "^3.6"
 
 [metadata.hashes]
@@ -338,7 +343,7 @@ msgpack = ["26cb40116111c232bc235ce131cc3b4e76549088cb154e66a2eb8ff6fcc907ec", "
 pastel = ["3108af417ec0fa6d0a620e676ec4f02c839ca13e10611586e5d2174b46aa0bc3", "d1fee8079534f99f1805a044fef946d23eee6d6a7cd34292c30e6c16be9a80b9"]
 pkginfo = ["7424f2c8511c186cd5424bbf31045b77435b37a8d604990b79d4e70d741148bb", "a6d9e40ca61ad3ebd0b72fbadd4fba16e4c0e4df0428c041e01e06eb6ee71f32"]
 pluggy = ["19ecf9ce9db2fce065a7a0586e07cfb4ac8614fe96edf628a264b1c70116cf8f", "84d306a647cc805219916e62aab89caa97a33a1dd8c342e87a37f91073cd4746"]
-poetry = ["9fc14cd2230947d5b176a9481edc6be4325ce88cdba4cc2dafce4facc46849c8", "e76f11e5dfd0edfc0cd2cdd64463703f1223bac56758c1f3a0080838f01b43a6"]
+poetry = []
 py = ["64f65755aee5b381cea27766a3a147c3f15b9b6b9ac88676de66ba2ae36793fa", "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53"]
 pylev = ["063910098161199b81e453025653ec53556c1be7165a9b7c50be2f4d57eae1c3", "1d29a87beb45ebe1e821e7a3b10da2b6b2f4c79b43f482c2df1a1f748a6e114e"]
 pyparsing = ["66c9268862641abcac4a96ba74506e594c884e3f57690a696d21ad8210ed667a", "f6c5ef0d7480ad048c054c37632c67fca55299990fff127850181659eea33fc3"]

@@ -1,4 +1,8 @@
+import sys
+
 import click
+
+from poetry.console.commands import LockCommand
 
 
 @click.group()
@@ -16,5 +20,9 @@ def sync():
     click.echo("Ran sync")
 
 
+def run():
+    return cli()
+
+
 if __name__ == '__main__':
-    cli()
+    sys.exit(run())
