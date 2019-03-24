@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+pip-wheel-metadata/
+*.egg-info/
+
+# Unit test / coverage reports
+.pytest_cache/
+.tox/
+
+# Sphinx documentation
+docs/_build
+
+# pyenv
+.python-version
