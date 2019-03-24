@@ -23,7 +23,6 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "0.12.5"
 
 [package.dependencies]
-lockfile = ">=0.9"
 msgpack = "*"
 requests = "*"
 
@@ -62,14 +61,6 @@ version = "0.6.8"
 [package.dependencies]
 pastel = ">=0.1.0,<0.2.0"
 pylev = ">=1.3,<2.0"
-
-[[package]]
-category = "main"
-description = "Composable command line interface toolkit"
-name = "click"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "7.0"
 
 [[package]]
 category = "dev"
@@ -113,15 +104,6 @@ attrs = ">=17.4.0"
 pyrsistent = ">=0.14.0"
 setuptools = "*"
 six = ">=1.11.0"
-
-[[package]]
-category = "main"
-description = "Platform-independent file locking module"
-marker = "extra == \"filecache\""
-name = "lockfile"
-optional = false
-python-versions = "*"
-version = "0.12.2"
 
 [[package]]
 category = "dev"
@@ -321,7 +303,7 @@ python-versions = "*"
 version = "0.5.1"
 
 [metadata]
-content-hash = "341c30a2be0f2b0c7739f0f0375fc0d7dccc9870bc5d04b10baed52703de9c0a"
+content-hash = "0a089885f8e30fdda1a3ff82ccd57c1b507a839c9c2a638f8ec9900e65a72887"
 python-versions = "^3.6"
 
 [metadata.hashes]
@@ -332,12 +314,10 @@ cachy = ["b71513e5a38ce90c1280c02b7d8d6bb3fdf64666c9cc0584f2479afea097d56c", "b7
 certifi = ["59b7658e26ca9c7339e00f8f4636cdfe59d34fa37b9b04f6f9e9926b3cece1a5", "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"]
 chardet = ["84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae", "fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"]
 cleo = ["85a63076b72ca376fb06668be1fc7758dc16740b394783d5cc65200c4b32f71b", "9b7f79f1aa470a025c0d28c76aa225ee9e65028d32f80032e871aa3500df61b8"]
-click = ["2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13", "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"]
 colorama = ["05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d", "f8ac84de7840f5b9c4e3347b3c1eaa50f7e49c2b07596221daec5edaabbd7c48"]
 html5lib = ["20b159aa3badc9d5ee8f5c647e5efd02ed2a66ab8d354930bd9ff139fc1dc0a3", "66cb0dcfdbbc4f9c3ba1a63fdb511ffdbd4f513b2b6d81b80cd26ce6b3fb3736"]
 idna = ["c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407", "ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"]
 jsonschema = ["0c0a81564f181de3212efa2d17de1910f8732fa1b71c42266d983cd74304e20d", "a5f6559964a3851f59040d3b961de5e68e70971afb88ba519d27e6a039efff1a"]
-lockfile = ["6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799", "6c3cb24f344923d30b2785d5ad75182c8ea7ac1b6171b08657258ec7429d50fa"]
 more-itertools = ["0125e8f60e9e031347105eb1682cef932f5e97d7b9a1a28d9bf00c22a5daef40", "590044e3942351a1bdb1de960b739ff4ce277960f2425ad4509446dbace8d9d1"]
 msgpack = ["26cb40116111c232bc235ce131cc3b4e76549088cb154e66a2eb8ff6fcc907ec", "300fd3f2c664a3bf473d6a952f843b4a71454f4c592ed7e74a36b205c1782d28", "3129c355342853007de4a2a86e75eab966119733eb15748819b6554363d4e85c", "31f6d645ee5a97d59d3263fab9e6be76f69fa131cddc0d94091a3c8aca30d67a", "3ce7ef7ee2546c3903ca8c934d09250531b80c6127e6478781ae31ed835aac4c", "4008c72f5ef2b7936447dcb83db41d97e9791c83221be13d5e19db0796df1972", "62bd8e43d204580308d477a157b78d3fee2fb4c15d32578108dc5d89866036c8", "70cebfe08fb32f83051971264466eadf183101e335d8107b80002e632f425511", "72cb7cf85e9df5251abd7b61a1af1fb77add15f40fa7328e924a9c0b6bc7a533", "7c55649965c35eb32c499d17dadfb8f53358b961582846e1bc06f66b9bccc556", "86b963a5de11336ec26bc4f839327673c9796b398b9f1fe6bb6150c2a5d00f0f", "8c73c9bcdfb526247c5e4f4f6cf581b9bb86b388df82cfcaffde0a6e7bf3b43a", "8e68c76c6aff4849089962d25346d6784d38e02baa23ffa513cf46be72e3a540", "97ac6b867a8f63debc64f44efdc695109d541ecc361ee2dce2c8884ab37360a1", "9d4f546af72aa001241d74a79caec278bcc007b4bcde4099994732e98012c858", "a28e69fe5468c9f5251c7e4e7232286d71b7dfadc74f312006ebe984433e9746", "fd509d4aa95404ce8d86b4e32ce66d5d706fd6646c205e1c2a715d87078683a2"]
 pastel = ["3108af417ec0fa6d0a620e676ec4f02c839ca13e10611586e5d2174b46aa0bc3", "d1fee8079534f99f1805a044fef946d23eee6d6a7cd34292c30e6c16be9a80b9"]

@@ -8,8 +8,8 @@ license = "MPL-2.0"
 [tool.poetry.dependencies]
 python = "^3.6"
 pytoml = "^0.1.20"
-click = "^7.0"
 poetry = { path = "vendor/poetry-0.12.11" }
+cleo = "^0.6.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.3"
