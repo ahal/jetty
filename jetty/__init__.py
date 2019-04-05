@@ -1,1 +1,1 @@
-from lock import lock
+from jetty.project import Project

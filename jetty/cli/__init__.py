@@ -1,17 +1,10 @@
 import sys
 
-from cleo import Application
-
-from .commands import (
-    LockCommand,
-)
-
-application = Application()
-application.add(LockCommand())
+from jetty.cli.application import Application
 
 
 def run():
-    application.run()
+    Application().run()
 
 
 if __name__ == '__main__':
