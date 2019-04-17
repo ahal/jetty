@@ -12,7 +12,7 @@ from poetry.console.commands import (
 )
 
 from jetty.__version__ import __version__
-from jetty.project import Project
+from jetty.project import JettisonedPoetry
 
 
 class Application(PoetryApplication):
@@ -29,7 +29,7 @@ class Application(PoetryApplication):
         if self._poetry:
             return self._poetry
 
-        self._poetry = Project()
+        self._poetry = JettisonedPoetry.create()
         return self._poetry
 
     def get_default_commands(self):

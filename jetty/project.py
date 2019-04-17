@@ -1,5 +1,7 @@
 import os
 
+from cleo.inputs import ArgvInput
+
 from poetry import json
 from poetry.packages import (
     Locker,
@@ -14,9 +16,84 @@ from jetty.util.dicttools import merge
 here = Path(__file__).parent.resolve()
 
 
-class Project(Poetry):
+class Project:
 
     def __init__(self, path=None):
+        from jetty.cli import Application
+        self._poetry = JettisonedPoetry.create(path)
+        self._application = Application()
+        self._application._auto_exit = False
+        self._application._poetry = self._poetry
+
+        for name, command in self._application.all().items():
+            func = self._make_func(name, command)
+            func.__doc__ = command.__doc__
+            setattr(self, name, func.__get__(self))
+
+    def _make_func(self, name, command):
+        definition = command.get_definition()
+        args = []
+        kwargs = []
+
+        for arg in definition.get_arguments() + definition.get_options():
+            if hasattr(arg, 'is_required') and arg.is_required():
+                args.append(arg.get_name())
+                continue
+
+            arg_name = arg.get_name().replace("-", "_")
+            arg_default = arg.get_default()
+            if isinstance(arg_default, str):
+                arg_default = f"\"{arg_default}\""
+            kwargs.append(f"{arg_name}={arg_default}")
+
+        args = ", ".join(args)
+        if args:
+            args = ", " + args
+
+        kwargs = ", ".join(kwargs)
+        if kwargs:
+            kwargs = ", " + kwargs
+
+        exec(f"""
+def {name}(self{args}{kwargs}):
+    kwargs = locals().copy()
+    del kwargs["self"]
+    cmd = self._build_cmd("{name}", **kwargs)
+    self._run(["{name}"] + cmd)
+""".strip())
+        return locals()[name]
+
+    def _build_cmd(self, name, **kwargs):
+        definition = self._application.all()[name].get_definition()
+        cmd = []
+
+        for name, value in kwargs.items():
+            name = name.replace("_", "-")
+
+            if definition.has_argument(name):
+                arg = definition.get_argument(name)
+                if value != arg.get_default():
+                    cmd.append(value)
+
+            elif definition.has_option(name):
+                opt = definition.get_option(name)
+                if value != opt.get_default():
+                    if isinstance(value, bool):
+                        cmd.append(f"--{name}")
+                    else:
+                        cmd.append(f"--{name}={value}")
+
+        return cmd
+
+    def _run(self, cmd):
+        i = ArgvInput(["poetry -v"] + cmd)
+        self._application.run(i)
+
+
+class JettisonedPoetry(Poetry):
+
+    @classmethod
+    def create(cls, path=None):
         path = path or os.getcwd()
         pyproject_file = Path(path)
 
@@ -40,7 +117,7 @@ class Project(Poetry):
         local_config = merge(tool.get('jetty', {}), tool.get('poetry', {}))
 
         # Checking validity
-        self.check(local_config)
+        cls.check(local_config)
 
         # Load package
         name = local_config.get('name', pyproject_file.parent.name)
@@ -88,9 +165,9 @@ class Project(Poetry):
 
         lock = pyproject_file.parent / "poetry.lock"
         locker = Locker(lock, local_config)
-        super(Project, self).__init__(pyproject_file, local_config, package, locker)
+        return cls(pyproject_file, local_config, package, locker)
 
     @classmethod
     def check(cls, config, strict=False):
         json.SCHEMA_DIR = here / "schemas"
-        super(Project, cls).check(config, strict=strict)
+        return Poetry.check(config, strict=strict)
