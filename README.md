@@ -66,7 +66,8 @@ forward for wrapping Poetry.
 
 Sort of? Jetty uses Poetry as a dependency without modification, everything is accomplished via
 wrapping. In the future, I may attempt to cut out modules that aren't necessary to dependency
-management.
+management. Depending if this project works out for my use case, I may also attempt to upstream
+whatever makes sense.
 
 Poetry is an awesome project that I whole-heartedly recommend and I make no claims for taking
 credit.
