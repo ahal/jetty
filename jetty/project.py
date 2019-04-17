@@ -36,11 +36,12 @@ class Project:
         kwargs = []
 
         for arg in definition.get_arguments() + definition.get_options():
+            arg_name = arg.get_name().replace("-", "_")
+
             if hasattr(arg, 'is_required') and arg.is_required():
-                args.append(arg.get_name())
+                args.append(arg_name)
                 continue
 
-            arg_name = arg.get_name().replace("-", "_")
             arg_default = arg.get_default()
             if isinstance(arg_default, str):
                 arg_default = f"\"{arg_default}\""
