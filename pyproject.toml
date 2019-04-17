@@ -7,8 +7,8 @@ license = "MPL-2.0"
 
 [tool.poetry.dependencies]
 python = "~2.7 || ^3.4"
-cleo = { path = "vendor/cleo-0.6.8" }
-poetry = { path = "vendor/poetry-0.12.11" }
+poetry = "^0.12.11"
+cleo = "^0.6.7"
 tomlkit = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
