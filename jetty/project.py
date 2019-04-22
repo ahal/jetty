@@ -4,6 +4,7 @@ from cleo.inputs import ArgvInput
 
 from poetry import json
 from poetry.packages import (
+    Dependency,
     Locker,
     ProjectPackage,
 )

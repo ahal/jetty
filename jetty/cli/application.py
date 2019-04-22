@@ -1,5 +1,3 @@
-import os
-
 from cleo import Application as BaseApplication
 from cleo.formatters import Formatter
 from poetry.console.application import Application as PoetryApplication

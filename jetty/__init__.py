@@ -1,1 +1,1 @@
-from jetty.project import Project
+from jetty.project import Project  # noqa
