@@ -15,6 +15,7 @@ tomlkit = "^0.5.3"
 pytest = "^4.3"
 flake8 = "^3.7"
 tox = "^3.9"
+flake8-import-order = "^0.18.1"
 
 [tool.poetry.scripts]
 jetty = "jetty.cli:run"

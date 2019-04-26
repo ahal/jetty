@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ahal/jetty.svg?branch=master)](https://travis-ci.org/ahal/jetty)
 [![PyPI version](https://badge.fury.io/py/jetty.svg)](https://badge.fury.io/py/jetty)
 
 # Jetty
