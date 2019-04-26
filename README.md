@@ -5,12 +5,12 @@
 
 Jetty is a *very thin* wrapper around [Poetry][0], the dependency and package management tool.
 Unlike Poetry, which assumes you are using it with a package, Jetty is singularly focused on
-dependency management. Other than removing all Poetry commands that aren't related to dependency
-management, Jetty accomplishes two things:
+dependency management. Jetty accomplishes three things:
 
 1. Removes Poetry's requirement to specify a package name, version and description in
    `pyproject.toml`.
-2. Provides a programmatic interface to all of the supported commands.
+2. Removes all commands that aren't related to dependency management.
+3. Provides a programmatic interface to all of the supported commands.
 
 The interface is automatically generated from Poetry's command line definitions. So for example, if
 you would normally run:
