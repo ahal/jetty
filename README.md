@@ -57,7 +57,7 @@ programmatically, then Jetty doesn't offer you any benefits. Just use Poetry, it
 
 **Why didn't you wrap pip-tools instead?**
 
-Pip-tools is another awesome project, which *does* focus solely on dependency management. But it
+[Pip-tools][2] is another awesome project, which *does* focus solely on dependency management. But it
 still doesn't have a programmatic API, and the UX is a bit less polished than what one might expect
 from Poetry or Pipenv. Plus after spending some time looking at both codebases, I saw an easier path
 forward for wrapping Poetry.
