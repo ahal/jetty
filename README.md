@@ -55,7 +55,7 @@ To be clear, if you *are* working with a Python package and don't need to call t
 programmatically, then Jetty doesn't offer you any benefits. Just use Poetry, it is awesome!
 
 
-**Why not pip-tools?**
+**Why didn't you wrap pip-tools instead?**
 
 Pip-tools is another awesome project, which *does* focus solely on dependency management. But it
 still doesn't have a programmatic API, and the UX is a bit less polished than what one might expect
