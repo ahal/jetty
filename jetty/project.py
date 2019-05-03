@@ -3,7 +3,6 @@ from __future__ import absolute_import
 import os
 
 from cleo.inputs import ArgvInput
-
 from poetry import json
 from poetry.packages import (
     Dependency,
