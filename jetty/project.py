@@ -1,6 +1,9 @@
+from __future__ import absolute_import
+
 import os
 
 from cleo.inputs import ArgvInput
+
 from poetry import json
 from poetry.packages import (
     Dependency,
@@ -44,8 +47,8 @@ class Project:
 
             arg_default = arg.get_default()
             if isinstance(arg_default, str):
-                arg_default = f"\"{arg_default}\""
-            kwargs.append(f"{arg_name}={arg_default}")
+                arg_default = "\"{}\"".format(arg_default)
+            kwargs.append("{}={}".format(arg_name, arg_default))
 
         args = ", ".join(args)
         if args:
@@ -55,13 +58,13 @@ class Project:
         if kwargs:
             kwargs = ", " + kwargs
 
-        exec(f"""
+        exec("""
 def {name}(self{args}{kwargs}):
     kwargs = locals().copy()
     del kwargs["self"]
     cmd = self._build_cmd("{name}", **kwargs)
     self._run(["{name}"] + cmd)
-""".strip())
+""".strip().format(name=name, args=args, kwargs=kwargs))
         return locals()[name]
 
     def _build_cmd(self, name, **kwargs):
@@ -80,9 +83,9 @@ def {name}(self{args}{kwargs}):
                 opt = definition.get_option(name)
                 if value != opt.get_default():
                     if isinstance(value, bool):
-                        cmd.append(f"--{name}")
+                        cmd.append("--{}".format(name))
                     else:
-                        cmd.append(f"--{name}={value}")
+                        cmd.append("--{}={}".format(name, value))
 
         return cmd
 
