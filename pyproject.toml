@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "jetty"
-version = "0.1.3"
+version = "0.1.4"
 description = ""
 authors = ["Andrew Halberstadt <ahal@pm.me>"]
 license = "MPL-2.0"
