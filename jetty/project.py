@@ -22,8 +22,8 @@ class Project:
 
     def __init__(self, path=None):
         from jetty.cli import Application
-        self._poetry = JettisonedPoetry.create(path)
-        self._application = Application()
+        self._application = Application(path)
+        self._poetry = self._application._poetry
         self._application._auto_exit = False
         self._application._poetry = self._poetry
 
@@ -66,8 +66,8 @@ def {name}(self{args}{kwargs}):
 """.strip().format(name=name, args=args, kwargs=kwargs))
         return locals()[name]
 
-    def _build_cmd(self, name, **kwargs):
-        definition = self._application.all()[name].get_definition()
+    def _build_cmd(self, command, **kwargs):
+        definition = self._application.all()[command].get_definition()
         cmd = []
 
         for name, value in kwargs.items():
@@ -172,5 +172,5 @@ class JettisonedPoetry(Poetry):
 
     @classmethod
     def check(cls, config, strict=False):
-        json.SCHEMA_DIR = here / "schemas"
+        json.SCHEMA_DIR = Path(here / "schemas").as_posix()
         return Poetry.check(config, strict=strict)

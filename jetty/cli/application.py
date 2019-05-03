@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from cleo import Application as BaseApplication
 from cleo.formatters import Formatter
 from poetry.console.application import Application as PoetryApplication
@@ -15,8 +17,9 @@ from jetty.project import JettisonedPoetry
 
 class Application(PoetryApplication):
 
-    def __init__(self):
+    def __init__(self, path=None):
         BaseApplication.__init__(self, "Jetty", __version__)
+        self._path = path
         self._poetry = None
         self._skip_io_configuration = False
         self._formatter = Formatter(True)
@@ -27,7 +30,7 @@ class Application(PoetryApplication):
         if self._poetry:
             return self._poetry
 
-        self._poetry = JettisonedPoetry.create()
+        self._poetry = JettisonedPoetry.create(self._path)
         return self._poetry
 
     def get_default_commands(self):
