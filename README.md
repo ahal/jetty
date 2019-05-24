@@ -29,6 +29,11 @@ project.install(dry_run=True)
 
 Otherwise Jetty shamelessly uses Poetry's logic and commands wholesale.
 
+## Installation
+
+```shell
+$ pip install jetty
+```
 
 ## FAQ
 
