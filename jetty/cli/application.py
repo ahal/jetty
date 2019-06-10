@@ -7,6 +7,7 @@ from poetry.console.commands import (
     AddCommand,
     InstallCommand,
     LockCommand,
+    RemoveCommand,
     ShowCommand,
     UpdateCommand,
 )
@@ -38,6 +39,7 @@ class Application(PoetryApplication):
 
         commands += [
             AddCommand(),
+            RemoveCommand(),
             InstallCommand(),
             LockCommand(),
             ShowCommand(),
