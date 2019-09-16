@@ -14,7 +14,7 @@ tomlkit = "^0.5.3"
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"
 flake8 = "^3.7"
-tox = "^3.9"
+tox = "^3.14"
 flake8-import-order = "^0.18.1"
 
 [tool.poetry.scripts]
